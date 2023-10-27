@@ -84,10 +84,11 @@ jobs:
         parameters: 'webAppName=${{ env.WEBAPP-NAME }} location=${{ env.LOCATION }}'
         failOnStdErr: false
 
-    - name: Publish Website to WebApp
-      uses: actions/delay@v1
-      with:
-        seconds: 600
+    - name: Delay Before Publish
+      run: |
+        echo "Sleeping for 10 minutes..."
+        sleep 600
+        echo "Delay completed."
     
     # Publish website to Azure App Service (WebApp)
     - name: Publish Website to WebApp
