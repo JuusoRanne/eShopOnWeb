@@ -82,7 +82,12 @@ jobs:
         resourceGroupName: ${{ env.RESOURCE-GROUP }}
         template: bicep-template/webapp.bicep
         parameters: 'webAppName=${{ env.WEBAPP-NAME }} location=${{ env.LOCATION }}'
-        failOnStdErr: false   
+        failOnStdErr: false
+
+    - name: Publish Website to WebApp
+      uses: actions/delay@v1
+      with:
+        seconds: 600
     
     # Publish website to Azure App Service (WebApp)
     - name: Publish Website to WebApp
